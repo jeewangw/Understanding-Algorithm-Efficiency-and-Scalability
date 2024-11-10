@@ -1,0 +1,29 @@
+Understanding How Well Algorithms Work and Grow
+1. Introduction
+•	Goal: This report looks at how well two algorithms, Randomized Quicksort and Hashing with Chaining, perform under different situations. We compare them by analyzing how they work in theory and by testing them on different types of data to see their strengths and weaknesses.
+2. Part 1: Randomized Quicksort Analysis
+2.1 Implementation
+•	Randomized Quicksort was written to pick a random "pivot" element from the list every time it splits the data. This helps avoid the worst-case performance by keeping the data split more balanced.
+2.2 Theory Behind Performance
+•	Average Time Complexity: Randomized Quicksort, on average, takes O(nlogn)O(n log n)O(nlogn) time. This is because choosing a random pivot balances the data most of the time, so the algorithm can run more efficiently.
+•	Explanation Using Math Concepts: Using concepts like "indicator variables" or recurrence formulas, we can show that random pivot selection keeps the algorithm balanced and fast on average.
+2.3 Comparison with Deterministic Quicksort
+•	Tests: We tested both Randomized and Deterministic Quicksort (which always picks the first element as the pivot) with different kinds of lists:
+o	Random lists
+o	Already sorted lists
+o	Reverse-sorted lists
+o	Lists with repeated values
+•	Results:
+o	For random lists, both algorithms performed similarly.
+o	For sorted or reverse-sorted lists, Deterministic Quicksort was much slower due to imbalanced splits.
+o	For lists with repeated values, Randomized Quicksort was generally faster since its random pivot avoids poor splits.
+•	Takeaway: Our tests confirm that Randomized Quicksort handles different lists well, while Deterministic Quicksort slows down on sorted data.
+3. Part 2: Hashing with Chaining
+3.1 Implementation
+•	We implemented a hash table with chaining. When two items map to the same spot, chaining links them together in a list, preventing overwriting. We used a hash function that spreads items out to minimize overlaps.
+3.2 Theory Behind Performance
+•	Expected Speed of Operations: When the table is balanced, search, insert, and delete operations take about the same time, around O(1+α)O(1 + alpha)O(1+α), where αalphaα (called the load factor) measures how full the table is.
+•	Managing the Load Factor: When the table gets too full, we resize it to keep operations fast. This helps prevent too many collisions, keeping the table efficient.
+4. Conclusion
+•	Main Points: Randomized Quicksort works well across different data types, while Deterministic Quicksort slows down with sorted data. Hashing with Chaining keeps performance steady by managing the load factor and resizing as needed.
+•	What This Means: Randomized Quicksort is better for unpredictable data, and Hashing with Chaining works well for large, growing sets of data that need quick access.
